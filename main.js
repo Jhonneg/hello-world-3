@@ -9,18 +9,10 @@ const cubeMaterial = new THREE.MeshBasicMaterial({
   wireframe: true,
 });
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-const cubeMesh2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
-const cubeMesh3 = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-cubeMesh2.position.x = 2;
-cubeMesh3.position.x = -2;
+scene.add(cubeMesh);
 
-const group = new THREE.Group();
-group.add(cubeMesh);
-group.add(cubeMesh2);
-group.add(cubeMesh3);
-
-scene.add(group);
+cubeMesh.rotation.z = 7;
 
 const axesHelper = new THREE.AxesHelper(2);
 scene.add(axesHelper);
