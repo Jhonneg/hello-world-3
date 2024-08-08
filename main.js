@@ -4,11 +4,26 @@ import { OrbitControls } from "three/examples/jsm/Addons.js";
 const scene = new THREE.Scene();
 
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cubeMaterial = new THREE.MeshBasicMaterial({
+  color: 0x00ff00,
+  wireframe: true,
+});
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cubeMesh);
+const cubeMesh2 = new THREE.Mesh(cubeGeometry, cubeMaterial);
+const cubeMesh3 = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-cubeMesh.position.y = 1;
+cubeMesh2.position.x = 2;
+cubeMesh3.position.x = -2;
+
+const group = new THREE.Group();
+group.add(cubeMesh);
+group.add(cubeMesh2);
+group.add(cubeMesh3);
+
+scene.add(group);
+
+const axesHelper = new THREE.AxesHelper(2);
+scene.add(axesHelper);
 
 const camera = new THREE.PerspectiveCamera(
   75,
